@@ -1,0 +1,34 @@
+import React from 'react'
+import Route from './Routes'
+import Login from '../components/login'
+
+import { BrowserRouter } from "react-router-dom";
+
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      logado: null
+    }
+  }
+
+  async componentWillMount() {
+    let logado = await sessionStorage.getItem('usuarioLogado')
+    this.setState({ ...this.state, logado })
+    console.log(logado)
+  }
+
+  render() {
+    const { logado } = this.state
+    if (logado) {
+      return (
+        <BrowserRouter >
+          < Route />
+        </BrowserRouter>
+      )
+    }
+    return (
+      < Login />
+    )
+  }
+}

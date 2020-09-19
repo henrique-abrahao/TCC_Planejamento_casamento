@@ -1,0 +1,61 @@
+import Card from 'react-bootstrap/Card'
+import React, { Component } from 'react';
+
+
+export default class NavPlace extends Component {
+
+  state = {
+    places: [
+      {
+        image: '',
+        name: '',
+      },
+      {
+        image: '',
+        name: '',
+      },
+      {
+        image: '',
+        name: '',
+      },
+      {
+        image: '',
+        name: '',
+      },
+      {
+        image: '',
+        name: '',
+      },
+      {
+        image: '',
+        name: '',
+      },
+      {
+        image: '',
+        name: '',
+      },
+    ]
+  }
+
+  // <option>Salão</option>
+  // <option>Buffet</option>
+  // <option>Bandas</option>
+  // <option>DJ</option>
+  // <option>Loja de Roupas</option>
+  // <option>Igraja</option>
+
+  renderCard = (name, image) => {
+    <Card className="text-center" style={{ width: '10%' }} >
+      <Card.Img variant="top" src="https://i.pinimg.com/originals/de/f6/96/def69643889ee29e232637646e839064.jpg" />
+      <Card.Title>Salão</Card.Title>
+    </Card>
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.places.map(item => this.renderCard(item.name, item.image))}
+      </div>
+    );
+  }
+} 
